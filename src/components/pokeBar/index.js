@@ -56,6 +56,7 @@ const PokeBar = ({ name, value }) => {
   
   const nameStyle = {
     width: "60px",
+    color: "#ffffff",
   }
 
   const barStyle = {
@@ -71,7 +72,7 @@ const PokeBar = ({ name, value }) => {
         <span style={nameStyle}>
             {abreviatePokeStatName(name)}:
         </span>
-        <Box position="relative" display="inline-flex" style={{ width: "20%" }}>
+        <Box position="relative" display="inline-flex" style={{ width: "90%" }}>
         <BorderLinearProgress
             color={hex ? undefined : color}
             variant="determinate"
