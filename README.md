@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![GitHub repo size](https://img.shields.io/github/repo-size/OberdanSoldi/pokedex)
+
 ## Available Scripts
 
 In the project directory, you can run:
