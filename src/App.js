@@ -10,8 +10,6 @@ import PokeBar from "./components/pokeBar";
 
 import { MongoClient } from 'mongodb';
 
--
-
 const App = () => {
   const [tab, setTab] = React.useState("one");
   const [pokemon, setPokemon] = useState(null);
