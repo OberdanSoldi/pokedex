@@ -8,8 +8,6 @@ import "./App.css";
 import TabPanel from "./components/TabPanel";
 import PokeBar from "./components/pokeBar";
 
-import { MongoClient } from 'mongodb';
-
 const App = () => {
   const [tab, setTab] = React.useState("one");
   const [pokemon, setPokemon] = useState(null);
@@ -30,22 +28,10 @@ const App = () => {
       numero = Math.round(Math.random() * (151 - 1) + 1);
     }
     const pokeurl = `https://pokeapi.co/api/v2/pokemon/${numero}`;
-    const uri = "mongodb+srv://oberdan:oberdan@cluster0.xtc4c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     fetch(pokeurl)
       .then(response => response.json())
       .then(data => {
         setPokemon(data);
-        client.connect(err => {
-          const collection = client.db("pokemon").collection("pokemon");
-          collection.insertOne(data, (err, res) => {
-            if (err) throw err;
-            console.log("1 document inserted");
-            client.close();
-          });
-          // perform actions on the collection object
-          client.close();
-});
       });
   };
 
