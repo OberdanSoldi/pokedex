@@ -1,0 +1,28 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: pokedb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8002:80
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+    links:
+      - db:db
+    depends_on:
+      - db
